@@ -1,0 +1,67 @@
+.sidebar {
+  padding: 10px 0;
+  border-right: 1px solid #979797;
+
+  .title {
+    font-size: 1.5em;
+    color: #2d83b9;
+    cursor: pointer;
+    padding: 0 8px;
+  }
+
+  ul {
+    padding: 0 8px 0 0; 
+    list-style-type: none;
+
+    li {
+      
+      margin: 2px 0;
+      border-radius: 4px;
+
+      &:hover a,
+      & a.active{
+        background-color: #eee;
+      }
+      
+      a {
+        display: flex;
+        padding: 5px 8px;
+        text-decoration: none;
+        font-size: 1.3em;
+        color: #369fe0;
+        align-items: center;
+        justify-content: space-between;
+        transition: all .3s;
+
+        span {
+          display: inline-block;
+          margin-right: 10px;
+        }
+
+        .edit-icon {
+          &:hover {
+            color: rgb(99, 99, 99);
+          }
+        }
+      }
+
+      .skeleton {
+        height: 37px;
+      }
+    }
+  }
+
+  .add-category-button {
+    display: flex;
+    justify-content: center;
+    padding: 8px 0;
+    color: #369fe0;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color .3s;
+
+    &:hover {
+      background-color: #eee;
+    }
+  }
+}

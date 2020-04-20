@@ -1,0 +1,24 @@
+{
+  "goods": [
+    {"category":"shoes","title":"Shoes 1","image":"https://image.flaticon.com/icons/png/512/124/124666.png","id":"3cd0a754-cb72-432b-8cdd-bbc5b42467dd","repairDate":"21/08/2052"},
+    {"category":"shirts","title":"Shirt 1","image":"https://cdn3.iconfinder.com/data/icons/clothes-5/60/Clothes_Blouse-512.png","id":"0a45f9ab-0f07-4598-a5e0-455d2fefd9bd","repairDate":"17/02/2022"},
+    {"category":"shirts","title":"Shirt 2","image":"https://image.flaticon.com/icons/png/512/124/124666.png","id":"017311d9-f411-41c9-a947-120002daed4a","repairDate":"01/03/2054"},
+    {"category":"shoes","title":"Shoes 1","image":"https://cdn4.iconfinder.com/data/icons/mixed-6/100/mixed-08-512.png","id":"a218075e-1010-4b65-9979-4d01e3b39919","repairDate":"08/05/2034"},
+    {"category":"shirts","title":"Shirt 2","image":"https://cdn3.iconfinder.com/data/icons/clothes-5/60/Clothes_Blouse-512.png","id":"5b55ad5a-ddc2-4459-b174-3220469e0a14","repairDate":"15/11/2033"},
+    {"category":"jackets","title":"Jacket 2","image":"https://cdn3.iconfinder.com/data/icons/clothes-5/60/Clothes_Blouse-512.png","id":"c0b62193-dde0-4b9f-b18a-1d4fc3bc37ad","repairDate":"01/12/2042"},
+    {"category":"shirts","title":"Shirt 2","image":"https://cdn3.iconfinder.com/data/icons/clothes-5/60/Clothes_Blouse-512.png","id":"dc3db3af-461b-4e4c-a176-ed72b66179c0","repairDate":"27/08/2053"},
+    {"category":"shirts","title":"Shirt 2","image":"https://image.flaticon.com/icons/png/512/124/124666.png","id":"f3b2c0f3-77fb-402a-b41f-4437d5a63839","repairDate":"27/10/2026"},
+    {"category":"shoes","title":"Shoes 2","image":"https://cdn3.iconfinder.com/data/icons/clothes-5/60/Clothes_Blouse-512.png","id":"0a598756-1f39-4fcf-852a-c0b3271c7598","repairDate":"21/02/2044"},
+    {"category":"shirts","title":"Shirt 2","image":"https://cdn2.iconfinder.com/data/icons/clothes-62/64/Pants-Clothes-Long-Jeans-512.png","id":"20643de4-f35a-4ed3-aa76-61d0c1dbd749","repairDate":"15/11/2029"},
+    {"category":"shoes","title":"Shoes 1","image":"https://cdn2.iconfinder.com/data/icons/clothes-62/64/Pants-Clothes-Long-Jeans-512.png","id":"c733f16e-f2d8-4073-9a10-64d2ea2caf43","repairDate":"24/06/2051"},
+    {"category":"shoes","title":"Shoes 1","image":"https://cdn3.iconfinder.com/data/icons/clothes-5/60/Clothes_Blouse-512.png","id":"1e07d55a-a8f3-4ebb-97a4-259475ac692d","repairDate":"21/02/2049"},
+    {"category":"pants","title":"Pants 2","image":"https://cdn3.iconfinder.com/data/icons/clothes-5/60/Clothes_Blouse-512.png","id":"8620e29f-9dd3-4770-a55a-9915a6facccc","repairDate":"10/03/2020"},
+    {"category":"shirts","title":"Shirt 2","image":"https://cdn4.iconfinder.com/data/icons/mixed-6/100/mixed-08-512.png","id":"6f8e5bfc-bdd9-4f4d-91f6-c1563926c2b1","repairDate":"21/11/2025"},
+    {"category":"pants","title":"Pants 1","image":"https://image.flaticon.com/icons/png/512/124/124666.png","id":"ffb095f7-7701-4213-a518-676b9ee7ba1a","repairDate":"17/11/2037"},
+    {"category":"shoes","title":"Shoes 2","image":"https://image.flaticon.com/icons/png/512/124/124666.png","id":"98d4e26c-c325-4c9f-8221-ce1a6d0b906c","repairDate":"13/06/2056"},
+    {"category":"pants","title":"Pants 1","image":"https://cdn3.iconfinder.com/data/icons/clothes-5/60/Clothes_Blouse-512.png","id":"d70adf8b-2b48-4d99-bd23-8646b89454de","repairDate":"04/05/2049"},
+    {"category":"shoes","title":"Shoes 2","image":"https://cdn4.iconfinder.com/data/icons/mixed-6/100/mixed-08-512.png","id":"2870cf64-4c57-4353-b7cf-7b3705b98d8a","repairDate":"24/06/2036"},
+    {"category":"shirts","title":"Shirt 2","image":"https://cdn4.iconfinder.com/data/icons/mixed-6/100/mixed-08-512.png","id":"c1cdbe65-157e-4326-a9af-6432e82656fa","repairDate":"06/09/2027"},
+    {"category":"shirts","title":"Shirt 1","image":"https://image.flaticon.com/icons/png/512/124/124666.png","id":"f23e37be-1bec-44ee-9f5a-0119d1ce566b","repairDate":"17/01/2046"}],
+  "categories": ["shirts", "shoes", "pants", "jackets"]
+}
