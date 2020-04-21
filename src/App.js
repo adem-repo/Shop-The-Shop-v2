@@ -10,7 +10,8 @@ import { Grid } from "@material-ui/core";
 import Header from "./components/Header/Header";
 import MainPage from "./components/MainPage/MainPage";
 import Shop from "./components/Shop/Shop";
-import SignInModal from './components/Modals/SignInModal';
+import SignInModal from "./components/Modals/SignInModal";
+import EditProductModal from "./components/Modals/EditProductModal";
 
 import { AppContext } from "./store/appContext";
 import { reducer, initialState } from "./store/reducer";
@@ -35,7 +36,10 @@ function App() {
             </Switch>
           </Grid>
         </Router>
-        <SignInModal />
+        <div>
+          <SignInModal />
+          <EditProductModal />
+        </div>
       </div>
     </AppContext.Provider>
   );

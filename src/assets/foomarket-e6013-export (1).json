@@ -1,0 +1,183 @@
+{
+  "categories" : {
+    "-M59z3w66tDk9qJ_o7Z7" : {
+      "title" : "pants"
+    },
+    "-M59z3w66tDk9qJ_o7Z8" : {
+      "title" : "shoes"
+    },
+    "-M59z3w7Oc13CV3G41L4" : {
+      "title" : "jackets"
+    },
+    "-M59z3w7Oc13CV3G41L5" : {
+      "title" : "shirts"
+    }
+  },
+  "goods" : {
+    "-M59xsanG48oA1ae73qg" : {
+      "category" : "shoes",
+      "image" : "https://cdn4.iconfinder.com/data/icons/mixed-6/100/mixed-08-512.png",
+      "repairDate" : "25/12/2042",
+      "title" : "Shoes 56"
+    },
+    "-M59xsaqXGVI0Rz71eRy" : {
+      "category" : "shirts",
+      "id" : "1f495269-f284-4f1a-96ec-71c5e27937a3",
+      "image" : "https://cdn3.iconfinder.com/data/icons/clothes-5/60/Clothes_Blouse-512.png",
+      "repairDate" : "15/05/2041",
+      "title" : "Shirt 50"
+    },
+    "-M59xsatJsG0Avc7TL0H" : {
+      "category" : "shoes",
+      "image" : "https://cdn4.iconfinder.com/data/icons/mixed-6/100/mixed-08-512.png",
+      "repairDate" : "20/04/2037",
+      "title" : "Shoes 70ghjasd"
+    },
+    "-M59xsawRz7GYGQXmGps" : {
+      "category" : "shirts",
+      "id" : "c56350d5-0b62-4b68-8768-a64e2abec3f0",
+      "image" : "https://cdn3.iconfinder.com/data/icons/clothes-5/60/Clothes_Blouse-512.png",
+      "repairDate" : "02/03/2041",
+      "title" : "Shirt 6"
+    },
+    "-M59xsazKxomQISZy-N1" : {
+      "category" : "shirts",
+      "id" : "a717a1c7-976d-4b77-a52e-640b9786c3f0",
+      "image" : "https://cdn3.iconfinder.com/data/icons/clothes-5/60/Clothes_Blouse-512.png",
+      "repairDate" : "30/09/2028",
+      "title" : "Shirt 43"
+    },
+    "-M59xsb2qLb_wYV03yNm" : {
+      "category" : "shirts",
+      "id" : "61b91326-8c00-49d2-8420-b00ae572be27",
+      "image" : "https://cdn3.iconfinder.com/data/icons/clothes-5/60/Clothes_Blouse-512.png",
+      "repairDate" : "04/03/2037",
+      "title" : "Shirt 21"
+    },
+    "-M59xsb56EAMwDGLPPbG" : {
+      "category" : "jackets",
+      "id" : "73513749-6530-4f5b-af28-7ad6a77d903d",
+      "image" : "https://image.flaticon.com/icons/png/512/124/124666.png",
+      "repairDate" : "20/09/2022",
+      "title" : "Jacket 98"
+    },
+    "-M59xsbApUMc232WunFM" : {
+      "category" : "pants",
+      "id" : "d33a0b6b-c7f1-4273-bff3-754cd070efc8",
+      "image" : "https://cdn2.iconfinder.com/data/icons/clothes-62/64/Pants-Clothes-Long-Jeans-512.png",
+      "repairDate" : "21/04/2040",
+      "title" : "Pants 43"
+    },
+    "-M59xsbDYprxlt0KJ5ZF" : {
+      "category" : "shoes",
+      "id" : "0fbb5d5a-047e-4d1a-a54a-130463b90b17",
+      "image" : "https://cdn4.iconfinder.com/data/icons/mixed-6/100/mixed-08-512.png",
+      "repairDate" : "23/04/2022",
+      "title" : "Shoes 22"
+    },
+    "-M59xsbGnXPp3WSYPMj5" : {
+      "category" : "jackets",
+      "id" : "8d432550-2a83-41e3-9948-fa8d478da3ac",
+      "image" : "https://image.flaticon.com/icons/png/512/124/124666.png",
+      "repairDate" : "12/04/2026",
+      "title" : "Jacket 54"
+    },
+    "-M59xsbKQUJhks3zeYwn" : {
+      "category" : "shirts",
+      "id" : "68bf770f-0bc5-45e7-95ea-4f2ea6f729ca",
+      "image" : "https://cdn3.iconfinder.com/data/icons/clothes-5/60/Clothes_Blouse-512.png",
+      "repairDate" : "21/11/2031",
+      "title" : "Shirt 55"
+    },
+    "-M59xsbO--gl3AkrJ0jd" : {
+      "category" : "jackets",
+      "id" : "5db34aaa-c8de-41d3-b7ca-b958f9afcf32",
+      "image" : "https://image.flaticon.com/icons/png/512/124/124666.png",
+      "repairDate" : "29/09/2025",
+      "title" : "Jacket 79"
+    },
+    "-M59xsbRjTIqdZJQm1Zk" : {
+      "category" : "shirts",
+      "id" : "4b16f9bb-f584-434f-bf9e-ced2958dc320",
+      "image" : "https://cdn3.iconfinder.com/data/icons/clothes-5/60/Clothes_Blouse-512.png",
+      "repairDate" : "23/02/2051",
+      "title" : "Shirt 63"
+    },
+    "-M59xsbUboVXEFrx8_EF" : {
+      "category" : "shirts",
+      "id" : "695377db-59c8-449d-b66d-2a281c423f6e",
+      "image" : "https://cdn3.iconfinder.com/data/icons/clothes-5/60/Clothes_Blouse-512.png",
+      "repairDate" : "07/02/2046",
+      "title" : "Shirt 18"
+    },
+    "-M59xsbYkQ3p4tr5x45r" : {
+      "category" : "shirts",
+      "id" : "da3a06b3-c54c-4f4d-ac25-a93a98d3394c",
+      "image" : "https://cdn3.iconfinder.com/data/icons/clothes-5/60/Clothes_Blouse-512.png",
+      "repairDate" : "02/01/2041",
+      "title" : "Shirt 73"
+    },
+    "-M59xsbawQ_0FH7AGKjt" : {
+      "category" : "shirts",
+      "id" : "3964a011-361f-4299-85c7-5fe03e5cede7",
+      "image" : "https://cdn3.iconfinder.com/data/icons/clothes-5/60/Clothes_Blouse-512.png",
+      "repairDate" : "02/10/2032",
+      "title" : "Shirt 57"
+    },
+    "-M59xsbeH4NZRiyLMFyM" : {
+      "category" : "pants",
+      "id" : "b955507e-e397-4d68-8ff3-7c9f07276e63",
+      "image" : "https://cdn2.iconfinder.com/data/icons/clothes-62/64/Pants-Clothes-Long-Jeans-512.png",
+      "repairDate" : "23/05/2025",
+      "title" : "Pants 1"
+    },
+    "-M59xsbiYpcI0mLQgTPD" : {
+      "category" : "jackets",
+      "id" : "e6bd0e99-85b1-4fdd-9898-3c78a6792bcc",
+      "image" : "https://image.flaticon.com/icons/png/512/124/124666.png",
+      "repairDate" : "27/12/2032",
+      "title" : "Jacket 89"
+    },
+    "-M59xsblVICD9654sCQe" : {
+      "category" : "shoes",
+      "id" : "a0117bce-f0a0-4ce1-bc76-dd183864ba24",
+      "image" : "https://cdn4.iconfinder.com/data/icons/mixed-6/100/mixed-08-512.png",
+      "repairDate" : "09/02/2054",
+      "title" : "Shoes 99"
+    },
+    "-M59xsbpDFXKWs8UI6Rc" : {
+      "category" : "pants",
+      "id" : "273aaa46-c79a-4c05-99a1-e883177742b5",
+      "image" : "https://cdn2.iconfinder.com/data/icons/clothes-62/64/Pants-Clothes-Long-Jeans-512.png",
+      "repairDate" : "05/05/2032",
+      "title" : "Pants 33"
+    },
+    "-M59xsbt-tZ4AwyHu7_T" : {
+      "category" : "jackets",
+      "id" : "e94a13bf-4dee-416d-99f5-ce8afa52fe8e",
+      "image" : "https://image.flaticon.com/icons/png/512/124/124666.png",
+      "repairDate" : "23/09/2036",
+      "title" : "Jacket 52"
+    },
+    "-M5Rdu2Qh9FVkTZqujuT" : {
+      "category" : "shoes",
+      "image" : "https://cdn.shopify.com/s/files/1/0217/3274/products/pau3053_056_h_large.jpg?v=1559687540",
+      "title" : "Super shoes"
+    },
+    "-M5Rdu2bs3RjfASelV89" : {
+      "category" : "",
+      "image" : "",
+      "title" : ""
+    },
+    "-M5ReIyvIfkHdLHl8eoq" : {
+      "category" : "",
+      "image" : "",
+      "title" : ""
+    },
+    "-M5ReN3mpSROMGRbHnsb" : {
+      "category" : "",
+      "image" : "",
+      "title" : ""
+    }
+  }
+}

@@ -76,6 +76,7 @@ export default function SignInModal(props) {
         BackdropProps={{
           timeout: 500,
         }}
+        key='signInModal'
       >
         <Fade in={store.signInModalOpen}>
           <div className={classes.paper}>

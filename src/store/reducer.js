@@ -1,5 +1,11 @@
 import * as ACTION_TYPES from './actionsTypes';
 
+const emptyProduct = {
+  title: '',
+  category: '',
+  image: '',
+};
+
 export const initialState = {
   signingIn: false,
   signedIn: true,
@@ -18,9 +24,15 @@ export const initialState = {
   signInModalOpen: false,
   editProductModalOpen: false,
   editCategoryModalOpen: false,
+
+  editingProduct: emptyProduct,
+  sendData: false,
+  sendDataFailure: false,
 };
 
 export const reducer = (state, action) => {
+
+  console.log(action);
 
   switch (action.type) {
     case ACTION_TYPES.SIGN_IN_REQUEST: return {...state, signedIn: false, signingIn: true,  signInFailure: false };
@@ -45,11 +57,16 @@ export const reducer = (state, action) => {
     case ACTION_TYPES.OPEN_SIGN_IN_MODAL: return {...state, signInModalOpen: true};
     case ACTION_TYPES.CLOSE_SIGN_IN_MODAL: return {...state, signInModalOpen: false};
 
-    case ACTION_TYPES.OPEN_EDIT_PRODUCT_MODAL: return {...state, editProductModalOpen: true};
-    case ACTION_TYPES.CLOSE_EDIT_PRODUCT_MODAL: return {...state, editProductModalOpen: false};
+    case ACTION_TYPES.OPEN_EDIT_PRODUCT_MODAL: 
+      const product = action.payload;
+      return {...state, editProductModalOpen: true, editingProduct: product};
+    case ACTION_TYPES.CLOSE_EDIT_PRODUCT_MODAL: return {...state, editProductModalOpen: false, editingProduct: emptyProduct};
 
     case ACTION_TYPES.OPEN_EDIT_CATEGORY_MODAL: return {...state, editCategoryModalOpen: true};
     case ACTION_TYPES.CLOSE_EDIT_CATEGORY_MODAL: return {...state, editCategoryModalOpen: false};
+
+    case ACTION_TYPES.SEND_DATA_REQUEST: return {...state, sendData: true}
+    case ACTION_TYPES.SEND_DATA_SUCCESS: return {...state, sendData: false}
 
     default: return state;
   }

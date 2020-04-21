@@ -73,9 +73,6 @@ export const useFetchCategories = () => {
   }, [store.fetchingCategories, dispatch]);
 };
 
-
-
-
 export const useFetchGoods = ({ filter: { category } = { category: "" } }) => {
   const { store, dispatch } = useContext(AppContext);
 
@@ -84,42 +81,79 @@ export const useFetchGoods = ({ filter: { category } = { category: "" } }) => {
       // TODO: do something with this shit
       if (category) {
         firebase
-        .database()
-        .ref(`/goods/`)
-        .orderByChild("category")
-        .equalTo(category)
-        .once("value")
-        .then(function (snapshot) {
-          const data = (snapshot.val() && listModifier(snapshot.val())) || [];
-          dispatch(actions.fetchGoodsSuccess(data));
-        })
-        .catch((error) => {
-          dispatch(actions.fetchGoodsFailure(error));
-        });
+          .database()
+          .ref(`/goods/`)
+          .orderByChild("category")
+          .equalTo(category)
+          .once("value")
+          .then(function (snapshot) {
+            const data = (snapshot.val() && listModifier(snapshot.val())) || [];
+            dispatch(actions.fetchGoodsSuccess(data));
+          })
+          .catch((error) => {
+            dispatch(actions.fetchGoodsFailure(error));
+          });
       } else {
         firebase
-        .database()
-        .ref(`/goods/`)
-        .once("value")
-        .then(function (snapshot) {
-          const data = (snapshot.val() && listModifier(snapshot.val())) || [];
-          dispatch(actions.fetchGoodsSuccess(data));
-        })
-        .catch((error) => {
-          dispatch(actions.fetchGoodsFailure(error));
-        });
-      }      
+          .database()
+          .ref(`/goods/`)
+          .once("value")
+          .then(function (snapshot) {
+            const data = (snapshot.val() && listModifier(snapshot.val())) || [];
+            dispatch(actions.fetchGoodsSuccess(data));
+          })
+          .catch((error) => {
+            dispatch(actions.fetchGoodsFailure(error));
+          });
+      }
     }
   }, [store.fetchingGoods, dispatch, category]);
 };
 
-// export const useSetData = (dataToSet) => {
+export const useSetData = (dataToSet) => {
+  const { store, dispatch } = useContext(AppContext);
 
-//   console.log(dataToSet);
+  useEffect(() => {
+    if (store.sendData) {
+      const {
+        type,
+        data: { id, ...info },
+      } = dataToSet;
+      let key;
 
-//   // firebase.database().ref('users/' + userId).set({
-//   //   username: name,
-//   //   email: email,
-//   //   profile_picture : imageUrl
-//   // });
-// }
+      if (id) {
+        key = id;
+      } else {
+        key = firebase.database().ref().child(`/${type}/`).push().key;
+      }
+
+      firebase
+        .database()
+        .ref(`/${type}/${key}`)
+        .set(info, () => {
+          dispatch(actions.sendDataSuccess());
+          if (type === "goods") {
+            dispatch(actions.fetchGoodsRequest());
+          } else if (type === "categories") {
+            dispatch(actions.fetchCategoriesRequest());
+          }
+        });
+    }
+  }, [store.sendData, dataToSet, dispatch]);
+};
+
+export const useDeleteData = (dataToRemove) => {
+  const { store, dispatch } = useContext(AppContext);
+
+  useEffect(() => {
+
+    const {type, id} = dataToRemove;
+
+    firebase
+      .database()
+      .ref(`/${type}/${id}`)
+      .remove(() => {
+        console.log(type, id, 'removed');
+      });
+  });
+};

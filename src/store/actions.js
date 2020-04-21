@@ -18,8 +18,12 @@ export const fetchGoodsFailure = ()        => ({ type: ACTION_TYPES.FETCH_GOODS_
 export const openSignInModal = () => ({ type: ACTION_TYPES.OPEN_SIGN_IN_MODAL });
 export const closeSignInModal = () => ({ type: ACTION_TYPES.CLOSE_SIGN_IN_MODAL });
 
-export const openEditProductModal = () => ({ type: ACTION_TYPES.OPEN_EDIT_PRODUCT_MODAL });
-export const closeEditProductModal = () => ({ type: ACTION_TYPES.CLOSE_EDIT_PRODUCT_MODAL });
+export const openEditProductModal  = (payload) => ({ type: ACTION_TYPES.OPEN_EDIT_PRODUCT_MODAL, payload });
+export const closeEditProductModal = (payload) => ({ type: ACTION_TYPES.CLOSE_EDIT_PRODUCT_MODAL, payload });
 
-export const openEditCategoryModal = () => ({type: ACTION_TYPES.OPEN_EDIT_CATEGORY_MODAL});
-export const closeEditCategoryModal = () => ({type: ACTION_TYPES.CLOSE_EDIT_CATEGORY_MODAL});
+export const openEditCategoryModal  = (payload) => ({type: ACTION_TYPES.OPEN_EDIT_CATEGORY_MODAL, payload});
+export const closeEditCategoryModal = ()        => ({type: ACTION_TYPES.CLOSE_EDIT_CATEGORY_MODAL});
+
+export const sendDataRequest = () => ({type: ACTION_TYPES.SEND_DATA_REQUEST});
+export const sendDataSuccess = () => ({type: ACTION_TYPES.SEND_DATA_SUCCESS});
+export const sendDataFailure = () => ({type: ACTION_TYPES.SEND_DATA_FAILURE});

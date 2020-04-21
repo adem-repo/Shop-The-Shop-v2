@@ -1,5 +1,7 @@
 .shop {
   display: grid;
   grid-template-columns: 200px auto;
+  grid-column-gap: 8px;
+  width: 100%;
   padding: 9px;
 }
