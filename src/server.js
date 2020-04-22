@@ -53,9 +53,8 @@ export const useSignOut = () => {
   }, [store.signingOut, dispatch]);
 };
 
-export const useFetchCategories = () => {
+export const useFetchCategories = (login, password) => {
   const { store, dispatch } = useContext(AppContext);
-
   useEffect(() => {
     if (store.fetchingCategories) {
       firebase
@@ -142,18 +141,22 @@ export const useSetData = (dataToSet) => {
   }, [store.sendData, dataToSet, dispatch]);
 };
 
-export const useDeleteData = (dataToRemove) => {
+export const useDeleteData = () => {
   const { store, dispatch } = useContext(AppContext);
 
   useEffect(() => {
+    if (store.deletingItem) {
+      const { type, id } = store.deletingItem;
 
-    const {type, id} = dataToRemove;
-
-    firebase
-      .database()
-      .ref(`/${type}/${id}`)
-      .remove(() => {
-        console.log(type, id, 'removed');
-      });
-  });
+      firebase
+        .database()
+        .ref(`/${type}/${id}`)
+        .remove(() => {
+          console.log(type, id, "removed");
+          dispatch(actions.deleteItemSuccess());
+          dispatch(actions.fetchGoodsRequest());
+        });
+    }
+    
+  }, [store.deletingItem, dispatch]);
 };

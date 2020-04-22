@@ -27,3 +27,6 @@ export const closeEditCategoryModal = ()        => ({type: ACTION_TYPES.CLOSE_ED
 export const sendDataRequest = () => ({type: ACTION_TYPES.SEND_DATA_REQUEST});
 export const sendDataSuccess = () => ({type: ACTION_TYPES.SEND_DATA_SUCCESS});
 export const sendDataFailure = () => ({type: ACTION_TYPES.SEND_DATA_FAILURE});
+
+export const deleteItemRequest = (payload) => ({type: ACTION_TYPES.DELETE_ITEM_REQUEST, payload})
+export const deleteItemSuccess = ()        => ({type: ACTION_TYPES.DELETE_ITEM_SUCCESS})

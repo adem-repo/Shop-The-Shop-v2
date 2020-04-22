@@ -9,11 +9,11 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 import EditIcon from "@material-ui/icons/Edit";
-import DeleteIcon from '@material-ui/icons/Delete';
+import DeleteIcon from "@material-ui/icons/Delete";
 
 import { AppContext } from "../../../../store/appContext";
-import * as actions from '../../../../store/actions';
-import { useDeleteData } from '../../../../server';
+import * as actions from "../../../../store/actions";
+import { useDeleteData } from "../../../../server";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,39 +39,37 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Product(props) {
-
   const { store, dispatch } = useContext(AppContext);
   const classes = useStyles();
   const { product } = props;
 
   const editHandler = () => {
-    dispatch(actions.openEditProductModal(product))
+    dispatch(actions.openEditProductModal(product));
   };
 
-  // useDeleteData({
-  //   type: 'goods',
-  //   id: product.id
-  // });
+  useDeleteData();
 
   const deleteHandler = () => {
-    // dispatch(actions.deleteItemRequest(product))
-  }
+    dispatch(
+      actions.deleteItemRequest({
+        type: "goods",
+        id: product.id,
+      })
+    );
+  };
 
   return (
     <Card className={classes.root}>
-      <CardHeader
-        title={product.title}
-        subheader={product.category}
-      />
+      <CardHeader title={product.title} subheader={product.category} />
       <CardMedia
         className={classes.media}
         image={product.image}
         title={product.title}
+        component="div"
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          sapiente quia.
+          {product.repairDate}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

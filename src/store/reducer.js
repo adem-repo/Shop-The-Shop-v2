@@ -68,6 +68,11 @@ export const reducer = (state, action) => {
     case ACTION_TYPES.SEND_DATA_REQUEST: return {...state, sendData: true}
     case ACTION_TYPES.SEND_DATA_SUCCESS: return {...state, sendData: false}
 
+    case ACTION_TYPES.DELETE_ITEM_REQUEST: 
+      const deletingItem = action.payload;
+      return {...state, deletingItem}
+    case ACTION_TYPES.DELETE_ITEM_SUCCESS: return {...state, deletingItem: null}
+
     default: return state;
   }
 };

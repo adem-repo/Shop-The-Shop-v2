@@ -2,14 +2,15 @@ import React, { useContext, useEffect } from "react";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { useLocation } from "react-router-dom";
-import { Button } from "@material-ui/core";
-import Icon from '@material-ui/core/Icon'
-import AddIcon from '@material-ui/icons/Add';
+import { Button, Fade } from "@material-ui/core";
+import AddIcon from "@material-ui/icons/Add";
 
 import Product from "./Product/Product";
 import { AppContext } from "../../../store/appContext";
 import * as actions from "../../../store/actions";
 import { useFetchGoods } from "../../../server";
+import Image from "../../Image/Image";
+import noData from "../../../assets/images/nodata.png";
 
 import "./Goods.scss";
 
@@ -25,8 +26,8 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
   },
   addButton: {
-    display: 'flex'
-  }
+    display: "flex",
+  },
 }));
 
 export default function Goods() {
@@ -58,23 +59,39 @@ export default function Goods() {
   const classes = useStyles();
 
   const addProductHandler = () => {
-    dispatch(actions.openEditProductModal())
-  }
+    dispatch(actions.openEditProductModal());
+  };
 
   return (
-    <Grid className={classes.root} container>
+    <Grid className={classes.root} container spacing={3}>
       <Grid item xs={12}>
-        <Button 
+        <Button
           className={classes.addButton}
           onClick={addProductHandler}
-          variant="outlined" 
+          variant="outlined"
           color="primary"
           fullWidth={true}
-          endIcon={<AddIcon/>}>
+          endIcon={<AddIcon />}
+        >
           Add product
         </Button>
       </Grid>
-      <div className="goods-list">{goodsList}</div>
+      {goodsList.length ? (
+        <Grid item xs={12}>
+          <Fade in={true} timeout={300}>
+            <div className="goods-list">{goodsList}</div>
+          </Fade>
+        </Grid>
+      ) : null}
+      {(!goodsList.length && !store.fetchingGood) ? (
+        <Grid item xs={12}>
+          <Fade in={true} timeout={300}>
+            <div className="empty-goods-list">
+              <Image src={noData} height={630}></Image>
+            </div>
+          </Fade>
+        </Grid>
+      ) : null }
     </Grid>
   );
 }
