@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
 import { Button, Fade } from "@material-ui/core";
 
 import Image from "./../Image/Image";
+import * as actions from "../../store/actions";
+import { AppContext } from "../../store/appContext";
 
 import "./MainPage.scss";
 
 export default function MainPage() {
-  const handleOpen = () => {};
+  const { store, dispatch } = useContext(AppContext);
+  const history = useHistory();
+
+  const handleOpen = () => {
+    console.log(store.signedIn);
+    if (store.signedIn) {
+      history.push('/shop');
+    } else {
+      dispatch(actions.openSignInModal());
+    }
+  };
 
   return (
     <Fade in={true} timeout={300}>
@@ -34,7 +47,7 @@ export default function MainPage() {
           </div>
         </div>
         <div className="article">
-          <Image src="https://www.fillmurray.com/640/360" height={200}/>
+          <Image src="https://www.fillmurray.com/640/360" height={200} />
           <div className="title">Lorem, ipsum dolor.</div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
@@ -44,7 +57,7 @@ export default function MainPage() {
           </p>
         </div>
         <div className="article">
-          <Image src="https://www.fillmurray.com/640/360" height={200}/>
+          <Image src="https://www.fillmurray.com/640/360" height={200} />
           <div className="title">Lorem, ipsum dolor.</div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
@@ -54,7 +67,7 @@ export default function MainPage() {
           </p>
         </div>
         <div className="article">
-          <Image src="https://www.fillmurray.com/640/360" height={200}/>
+          <Image src="https://www.fillmurray.com/640/360" height={200} />
           <div className="title">Lorem, ipsum dolor.</div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
@@ -64,7 +77,7 @@ export default function MainPage() {
           </p>
         </div>
         <div className="article">
-          <Image src="https://www.fillmurray.com/640/360" height={200}/>
+          <Image src="https://www.fillmurray.com/640/360" height={200} />
           <div className="title">Lorem, ipsum dolor.</div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
@@ -74,7 +87,7 @@ export default function MainPage() {
           </p>
         </div>
         <div className="article">
-          <Image src="https://www.fillmurray.com/640/360" height={200}/>
+          <Image src="https://www.fillmurray.com/640/360" height={200} />
           <div className="title">Lorem, ipsum dolor.</div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum

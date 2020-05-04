@@ -1,11 +1,25 @@
 import * as ACTION_TYPES from './actionsTypes';
 
-export const signInSuccess = (payload) => ({ type: ACTION_TYPES.SIGN_IN_SUCCESS, payload });
+export const signInSuccess = (payload) => {
+  const { idToken, refreshToken, expirationDate } = payload;  
+  localStorage.setItem('idToken', idToken);
+  localStorage.setItem('refreshToken', refreshToken);
+  localStorage.setItem('expirationDate', expirationDate);
+  return { type: ACTION_TYPES.SIGN_IN_SUCCESS, payload: {idToken, refreshToken, expirationDate} }
+};
 export const signInFailure = ()        => ({ type: ACTION_TYPES.SIGN_IN_FAILURE });
-export const signInRequest = ()        => ({ type: ACTION_TYPES.SIGN_IN_REQUEST });
+export const signInRequest = (payload) => ({ type: ACTION_TYPES.SIGN_IN_REQUEST, payload });
 
-export const signOutRequest = () => ({ type: ACTION_TYPES.SIGN_OUT_REQUEST });
-export const signOutSuccess = () => ({ type: ACTION_TYPES.SIGN_OUT_SUCCESS });
+export const signOut = () => {
+  localStorage.removeItem('idToken');
+  localStorage.removeItem('refreshToken');
+  localStorage.removeItem('expirationDate');
+  return {type: ACTION_TYPES.SING_OUT};
+}
+
+export const refreshTokenRequest = () => ({ type: ACTION_TYPES.REFRESH_TOKEN_REQUEST });
+export const refreshTokenSuccess = (payload) => ({ type: ACTION_TYPES.REFRESH_TOKEN_SUCCESS, payload });
+export const refreshTokenFailure = (payload) => ({ type: ACTION_TYPES.REFRESH_TOKEN_FAILURE, payload })
 
 export const fetchCategoriesRequest = ()        => ({ type: ACTION_TYPES.FETCH_CATEGORIES_REQUEST });
 export const fetchCategoriesSuccess = (payload) => ({ type: ACTION_TYPES.FETCH_CATEGORIES_SUCCESS, payload });

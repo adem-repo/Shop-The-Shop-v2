@@ -49,7 +49,7 @@ export default function Header() {
 
   const handleOpen = () => {
     if (store.signedIn) {
-      dispatch(actions.signOutRequest());
+      dispatch(actions.signOut());
     } else {
       dispatch(actions.openSignInModal());
     }

@@ -11,14 +11,18 @@ import Header from "./components/Header/Header";
 import MainPage from "./components/MainPage/MainPage";
 import Shop from "./components/Shop/Shop";
 import SignInModal from "./components/Modals/SignInModal";
-import EditProductModal from "./components/Modals/EditProductModal";
+// import EditProductModal from "./components/Modals/EditProductModal";
+// import EditCategoryModal from './components/Modals/EditCategoryModal';
 
 import { AppContext } from "./store/appContext";
 import { reducer, initialState } from "./store/reducer";
 import "./App.scss";
+import { useServer } from "./server";
 
 function App() {
   const [store, dispatch] = useReducer(reducer, initialState);
+
+  useServer(store, dispatch);
 
   return (
     <AppContext.Provider value={{ store, dispatch }}>
@@ -38,7 +42,8 @@ function App() {
         </Router>
         <div>
           <SignInModal />
-          <EditProductModal />
+          {/*<EditProductModal />
+          <EditCategoryModal />*/}
         </div>
       </div>
     </AppContext.Provider>

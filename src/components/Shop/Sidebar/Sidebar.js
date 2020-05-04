@@ -1,13 +1,13 @@
 import React, { useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import EditIcon from "@material-ui/icons/Edit";
+import DeleteIcon from "@material-ui/icons/Delete";
 import AddIcon from "@material-ui/icons/Add";
 import { Tooltip, Fade } from "@material-ui/core";
 import { Skeleton } from "@material-ui/lab";
 import { useHistory } from "react-router-dom";
 
 import { AppContext } from "../../../store/appContext";
-import { useFetchCategories } from "../../../server";
 import * as actions from "../../../store/actions";
 
 import "./Sidebar.scss";
@@ -20,20 +20,28 @@ export default function Sidebar() {
     dispatch(actions.fetchCategoriesRequest());
   }, [dispatch]);
 
-  useFetchCategories();
-
   const addCategoryHandler = () => {
     console.log("add category");
+    dispatch(actions.openEditCategoryModal());
   };
 
   const editCategoryHandler = (event, category) => {
     event.preventDefault();
-    console.log("edit category", category);
+    dispatch(actions.openEditCategoryModal(category)); 
   };
+
+  const removeCategoryHandler = (event, id) => {
+    event.preventDefault();
+    console.log("delete category", id);
+    dispatch(actions.deleteItemRequest({
+      type: 'categories',
+      id
+    }))
+  }
 
   const resetCategories = () => {
     history.push("/shop");
-  }
+  };
 
   const categoiesElements = store.categories.map((category) => {
     const capitalizeString = (string) =>
@@ -43,12 +51,24 @@ export default function Sidebar() {
         <li>
           <NavLink to={`/shop/${category.title}`} activeClassName="active">
             <span>{capitalizeString(category.title)}</span>
-            <Tooltip title="Edit category" placement="right">
-              <EditIcon
-                className="edit-icon"
-                onClick={(event) => editCategoryHandler(event, category.title)}
-              />
-            </Tooltip>
+            <div>
+              <Tooltip title="Edit category" placement="right">
+                <EditIcon
+                  className="edit-icon"
+                  onClick={(event) =>
+                    editCategoryHandler(event, category.id)
+                  }
+                />
+              </Tooltip>
+              <Tooltip title="Remove category" placement="right">
+                <DeleteIcon
+                  className="edit-icon"
+                  onClick={(event) =>
+                    removeCategoryHandler(event, category.id)
+                  }
+                />
+              </Tooltip>
+            </div>
           </NavLink>
         </li>
       </Fade>
@@ -63,7 +83,9 @@ export default function Sidebar() {
 
   return (
     <div className="sidebar">
-      <div className="title" onClick={resetCategories}>Categories</div>
+      <div className="title" onClick={resetCategories}>
+        Categories
+      </div>
       <ul>{store.fetchingCategories ? skeletonElements : categoiesElements}</ul>
       <Tooltip title="Add category" placement="right">
         <div className="add-category-button" onClick={addCategoryHandler}>

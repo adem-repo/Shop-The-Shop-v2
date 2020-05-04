@@ -8,7 +8,7 @@ import AddIcon from "@material-ui/icons/Add";
 import Product from "./Product/Product";
 import { AppContext } from "../../../store/appContext";
 import * as actions from "../../../store/actions";
-import { useFetchGoods } from "../../../server";
+import { useFetchGoods, useDeleteData } from "../../../server";
 import Image from "../../Image/Image";
 import noData from "../../../assets/images/nodata.png";
 
@@ -33,6 +33,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Goods() {
   const { store, dispatch } = useContext(AppContext);
   const params = useLocation();
+
+  // useDeleteData();
 
   const { pathname } = params;
   const pathnameParts = pathname.split("/");

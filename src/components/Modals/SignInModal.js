@@ -12,7 +12,6 @@ import {
 
 import { AppContext } from '../../store/appContext';
 import * as actions from '../../store/actions';
-import { useSignIn, useSignOut } from '../../server';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -56,13 +55,14 @@ export default function SignInModal(props) {
   const login = "admin@corp-mail.com";
   const password = "admin1";
 
-  // useSignIn(login, password);
-  // useSignOut();
-
   const formSubmitHandler = () => {
     dispatch(actions.closeSignInModal());
-    dispatch(actions.signInRequest());
+    dispatch(actions.signInRequest({login, password}));
   };
+
+  const handleClose = () => {
+    dispatch(actions.closeSignInModal());
+  }
 
   return (
     <Modal
@@ -70,7 +70,7 @@ export default function SignInModal(props) {
         aria-describedby="transition-modal-description"
         className={classes.modal}
         open={store.signInModalOpen}
-        onClose={props.handleClose}
+        onClose={handleClose}
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{

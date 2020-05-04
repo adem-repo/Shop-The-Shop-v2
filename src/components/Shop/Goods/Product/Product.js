@@ -1,4 +1,4 @@
-import React, { useContext, useCallback } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -10,10 +10,11 @@ import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
+import Tooltip from "@material-ui/core/Tooltip";
 
 import { AppContext } from "../../../../store/appContext";
 import * as actions from "../../../../store/actions";
-import { useDeleteData } from "../../../../server";
+import { useDeleteData } from '../../../../server';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,24 +39,32 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Product(props) {
+export default React.memo((props) => {
   const { store, dispatch } = useContext(AppContext);
+  const [isDelete, setIsDelete] = useState(false)
   const classes = useStyles();
   const { product } = props;
+
+
+  isDelete && console.log('I\'m fucking bitch - update all the time!!!')
 
   const editHandler = () => {
     dispatch(actions.openEditProductModal(product));
   };
 
-  useDeleteData();
+  useDeleteData(isDelete, {
+    type: "goods",
+    id: product.id,
+  });
 
   const deleteHandler = () => {
-    dispatch(
-      actions.deleteItemRequest({
-        type: "goods",
-        id: product.id,
-      })
-    );
+    setIsDelete(true);
+    // dispatch(
+    //   actions.deleteItemRequest({
+    //     type: "goods",
+    //     id: product.id,
+    //   })
+    // );
   };
 
   return (
@@ -73,13 +82,17 @@ export default function Product(props) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="edit" onClick={editHandler}>
-          <EditIcon />
-        </IconButton>
-        <IconButton aria-label="edit" onClick={deleteHandler}>
-          <DeleteIcon />
-        </IconButton>
+        <Tooltip title="Edit product" placement="top">
+          <IconButton aria-label="edit" onClick={editHandler}>
+            <EditIcon />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="Remove product" placement="top">
+          <IconButton aria-label="edit" onClick={deleteHandler}>
+            <DeleteIcon />
+          </IconButton>
+        </Tooltip>
       </CardActions>
     </Card>
   );
-}
+});

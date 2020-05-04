@@ -7,10 +7,17 @@ const emptyProduct = {
 };
 
 export const initialState = {
+
+  user: {
+    login: null,
+    password: null
+  },
+
   signingIn: false,
-  signedIn: true,
+  signedIn: false,
   signInFailure: false,
   signingOut: false,
+  refreshingToken: false,
 
   fetchingCategories: false,
   fetchCategoriesFailure: false,
@@ -26,8 +33,13 @@ export const initialState = {
   editCategoryModalOpen: false,
 
   editingProduct: emptyProduct,
+  editingCategoryID: null,
+  
   sendData: false,
   sendDataFailure: false,
+
+  deletingItem: null,
+  deleteInProcess: false
 };
 
 export const reducer = (state, action) => {
@@ -35,12 +47,18 @@ export const reducer = (state, action) => {
   console.log(action);
 
   switch (action.type) {
-    case ACTION_TYPES.SIGN_IN_REQUEST: return {...state, signedIn: false, signingIn: true,  signInFailure: false };
-    case ACTION_TYPES.SIGN_IN_SUCCESS: return {...state, signedIn: true,  signingIn: false, signInFailure: false };
-    case ACTION_TYPES.SIGN_IN_FAILURE: return {...state, signedIn: false, signingIn: false, signInFailure: true };
-      
-    case ACTION_TYPES.SIGN_OUT_REQUEST: return {...state, signingOut: true};
-    case ACTION_TYPES.SIGN_OUT_SUCCESS: return {...state, signedIn: false, signingOut: false};
+    case ACTION_TYPES.SIGN_IN_REQUEST: 
+      const signInData = action.payload;
+      return {...state, signedIn: false, signingIn: true,  signInFailure: false, user: {...state.user, ...signInData} };
+    case ACTION_TYPES.SIGN_IN_SUCCESS: 
+      const user = action.payload;
+      return {...state, signedIn: true,  signingIn: false, signInFailure: false, user: {...state.user, ...user} };
+    case ACTION_TYPES.SIGN_IN_FAILURE: return {...state, signedIn: false, signingIn: false, signInFailure: true, user: null };
+
+    case ACTION_TYPES.SING_OUT:       
+      return {...state, signedIn: false, user: null};
+
+    case ACTION_TYPES.REFRESH_TOKEN_REQUEST: return {...state, refreshingToken: true }
 
     case ACTION_TYPES.FETCH_CATEGORIES_REQUEST: return {...state, fetchingCategories: true,  fetchFailure: false};
     case ACTION_TYPES.FETCH_CATEGORIES_FAILURE: return {...state, fetchingCategories: false, fetchCategoriesFailure: true};
@@ -62,16 +80,19 @@ export const reducer = (state, action) => {
       return {...state, editProductModalOpen: true, editingProduct: product};
     case ACTION_TYPES.CLOSE_EDIT_PRODUCT_MODAL: return {...state, editProductModalOpen: false, editingProduct: emptyProduct};
 
-    case ACTION_TYPES.OPEN_EDIT_CATEGORY_MODAL: return {...state, editCategoryModalOpen: true};
-    case ACTION_TYPES.CLOSE_EDIT_CATEGORY_MODAL: return {...state, editCategoryModalOpen: false};
+    case ACTION_TYPES.OPEN_EDIT_CATEGORY_MODAL: 
+    const editingCategoryID = action.payload;
+    const editingCategory = state.categories.find(category => editingCategoryID === category.id);
+      return {...state, editCategoryModalOpen: true, editingCategory};
+    case ACTION_TYPES.CLOSE_EDIT_CATEGORY_MODAL: return {...state, editCategoryModalOpen: false, editingCategory: null};
 
     case ACTION_TYPES.SEND_DATA_REQUEST: return {...state, sendData: true}
     case ACTION_TYPES.SEND_DATA_SUCCESS: return {...state, sendData: false}
 
     case ACTION_TYPES.DELETE_ITEM_REQUEST: 
       const deletingItem = action.payload;
-      return {...state, deletingItem}
-    case ACTION_TYPES.DELETE_ITEM_SUCCESS: return {...state, deletingItem: null}
+      return {...state, deletingItem, deleteInProcess: true}
+    case ACTION_TYPES.DELETE_ITEM_SUCCESS: return {...state, deletingItem: null, deleteInProcess: false}
 
     default: return state;
   }
